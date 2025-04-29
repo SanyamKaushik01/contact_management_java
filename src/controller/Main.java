@@ -79,6 +79,7 @@ public class Main {
 			    String field = sc.nextLine();
 			    System.out.print("Enter value to search for update: ");
 			    String fieldValue = sc.nextLine();
+
 			    List<Contact> matches = contactService.searchByField(field, fieldValue);
 
 			    if (matches.isEmpty()) {
@@ -86,7 +87,26 @@ public class Main {
 			        break;
 			    }
 
-			    Contact toUpdate = matches.get(0);  // update the first match
+			    System.out.println("Matching contacts:");
+			    for (Contact contact : matches) {
+			        System.out.println(contact);
+			    }
+
+			    System.out.print("Enter the exact Name of the contact you want to update: ");
+			    String selectedName = sc.nextLine();
+
+			    Contact toUpdate = null;
+			    for (Contact contact : matches) {
+			        if (contact.getName().equalsIgnoreCase(selectedName)) {
+			            toUpdate = contact;
+			            break;
+			        }
+			    }
+
+			    if (toUpdate == null) {
+			        System.out.println("No contact with the given name found in search results. Update cancelled.");
+			        break;
+			    }
 
 			    System.out.println("Leave field blank to keep old value.");
 
