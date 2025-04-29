@@ -6,6 +6,20 @@ import java.util.List;
 
 public class ContactRepository {
     private List<Contact> contacts = new ArrayList<>();
+    public ContactRepository() {
+    	contacts.add(new Contact("Vishwajeet", "9119734412", "vishwajeetchhonker@gmail.com", "Jewar"));
+    	contacts.add(new Contact("John","9876509823", "john@gmail.com", "LA"));
+    	contacts.add(new Contact("Alice", "9876543210", "alice@example.com", "New York"));
+    	contacts.add(new Contact("Bob", "9123456789", "bob@example.com", "Chicago"));
+    	contacts.add(new Contact("Eve", "9988776655", "eve@example.com", "Houston"));
+    	contacts.add(new Contact("Charlie", "9876123456", "charlie@example.com", "San Francisco"));
+    	contacts.add(new Contact("David", "9786543210", "david@example.com", "Boston"));
+    	contacts.add(new Contact("Sophia", "9234567890", "sophia@example.com", "Seattle"));
+    	contacts.add(new Contact("Mike", "9877098765", "mike@example.com", "Miami"));
+    	contacts.add(new Contact("Olivia", "9865432190", "olivia@example.com", "Dallas"));
+    	contacts.add(new Contact("Emma", "9123098765", "emma@example.com", "Austin"));
+
+    }
 
     // Add Contact
     public void addContact(Contact contact) {
@@ -14,6 +28,7 @@ public class ContactRepository {
 
     // Get All Contacts
     public List<Contact> getAllContacts() {
+        contacts.sort((a,b)->a.getName().compareTo(b.getName()));
         return contacts;
     }
 

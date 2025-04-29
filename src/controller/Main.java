@@ -46,7 +46,7 @@ public class Main {
                         System.out.println("No contacts found!");
                     } else {
                         for (Contact c : contacts) {
-                            System.out.println(c);
+                            System.out.println(c.getName());
                         }
                     }
                     break;
