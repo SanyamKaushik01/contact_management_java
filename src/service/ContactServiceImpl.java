@@ -11,6 +11,14 @@ public class ContactServiceImpl implements ContactService {
     public void addContact(Contact contact) {
         repository.addContact(contact);
     }
+    @Override
+    public List<Contact> searchByField(String field, String value) {
+        return repository.findByField(field, value);
+    }
+    @Override
+    public boolean isPhoneTaken(String phone, String excludeName) {
+        return repository.phoneExists(phone, excludeName);
+    }
 
     @Override
     public List<Contact> viewContacts() {

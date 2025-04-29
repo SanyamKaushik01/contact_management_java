@@ -9,4 +9,7 @@ public interface ContactService {
     Contact searchContact(String name);
     boolean deleteContact(String name);
     boolean updateContact(String name, Contact updatedContact);
+    List<Contact> searchByField(String field, String value);
+    boolean isPhoneTaken(String phone, String excludeName);
+
 }

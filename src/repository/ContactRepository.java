@@ -51,4 +51,32 @@ public class ContactRepository {
         }
         return false;
     }
+    public List<Contact> findByField(String field, String value) {
+        List<Contact> matched = new ArrayList<>();
+        for (Contact c : contacts) {
+            switch (field.toLowerCase()) {
+                case "name":
+                    if (c.getName().toLowerCase().contains(value.toLowerCase())) matched.add(c);
+                    break;
+                case "phone":
+                    if (c.getPhone().contains(value)) matched.add(c);
+                    break;
+                case "email":
+                    if (c.getEmail().toLowerCase().contains(value.toLowerCase())) matched.add(c);
+                    break;
+                case "address":
+                    if (c.getAddress().toLowerCase().contains(value.toLowerCase())) matched.add(c);
+                    break;
+            }
+        }
+        return matched;
+    }
+    public boolean phoneExists(String phone, String excludeName) {
+        for (Contact c : contacts) {
+            if (c.getPhone().equals(phone) && !c.getName().equalsIgnoreCase(excludeName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
