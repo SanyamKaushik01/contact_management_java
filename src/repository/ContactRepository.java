@@ -15,9 +15,9 @@ public class ContactRepository {
     	contacts.add(new Contact("Charlie", "9876123456", "charlie@example.com", "San Francisco"));
     	contacts.add(new Contact("David", "9786543210", "david@example.com", "Boston"));
     	contacts.add(new Contact("Sophia", "9234567890", "sophia@example.com", "Seattle"));
-    	contacts.add(new Contact("Mike", "9877098765", "mike@example.com", "Miami"));
+    	contacts.add(new Contact("Asmit", "9877098765", "mike@example.com", "Miami"));
     	contacts.add(new Contact("Olivia", "9865432190", "olivia@example.com", "Dallas"));
-    	contacts.add(new Contact("Emma", "9123098765", "emma@example.com", "Austin"));
+    	contacts.add(new Contact("Vaibhav", "9123098765", "emma@example.com", "Austin"));
 
     }
 
