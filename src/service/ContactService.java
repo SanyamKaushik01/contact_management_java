@@ -6,7 +6,7 @@ import java.util.List;
 public interface ContactService {
     void addContact(Contact contact);
     List<Contact> viewContacts();
-    Contact searchContact(String name);
+    void searchContact(String name);
     boolean deleteContact(String name);
     boolean updateContact(String name, Contact updatedContact);
     List<Contact> searchByField(String field, String value);

@@ -34,17 +34,15 @@ public class ContactRepository {
 
     // Find Contact by Name
     public Contact findByName(String name) {
-        for (Contact c : contacts) {
-            if (c.getName().equalsIgnoreCase(name)) {
-                return c;
-            }
-        }
-        return null;
+    	Contact contact;
+    	contact = contacts.stream().filter(c->c.getName().toLowerCase().equalsIgnoreCase(name)).findFirst().orElse(null);
+    	System.out.println(contact);
+    	return contact;
     }
 
     // Delete Contact
     public boolean deleteContact(String name) {
-        Contact contact = findByName(name);
+        Contact contact = contacts.stream().filter(c->c.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
         if (contact != null) {
             contacts.remove(contact);
             return true;
@@ -52,25 +50,19 @@ public class ContactRepository {
         return false;
     }
     public List<Contact> findByField(String field, String value) {
-        List<Contact> matched = new ArrayList<>();
-        for (Contact c : contacts) {
             switch (field.toLowerCase()) {
                 case "name":
-                    if (c.getName().toLowerCase().contains(value.toLowerCase())) matched.add(c);
-                    break;
+                	return contacts.stream().filter(k->k.getName().toLowerCase().contains(value.toLowerCase())).toList();
                 case "phone":
-                    if (c.getPhone().contains(value)) matched.add(c);
-                    break;
+                	return contacts.stream().filter(k->k.getPhone().contains(value)).toList();
                 case "email":
-                    if (c.getEmail().toLowerCase().contains(value.toLowerCase())) matched.add(c);
-                    break;
+                	return contacts.stream().filter(k->k.getEmail().toLowerCase().contains(value.toLowerCase())).toList();
                 case "address":
-                    if (c.getAddress().toLowerCase().contains(value.toLowerCase())) matched.add(c);
-                    break;
+                	return contacts.stream().filter(k->k.getAddress().toLowerCase().contains(value.toLowerCase())).toList();
+                	default:
+                		return null;
             }
         }
-        return matched;
-    }
     public boolean phoneExists(String phone, String excludeName) {
         for (Contact c : contacts) {
             if (c.getPhone().equals(phone) && !c.getName().equalsIgnoreCase(excludeName)) {

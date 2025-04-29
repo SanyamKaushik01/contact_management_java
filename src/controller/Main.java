@@ -63,13 +63,9 @@ public class Main {
 			    System.out.print("Enter value to search: ");
 			    String searchValue = sc.nextLine();
 
-			    List<Contact> results = contactService.searchByField(searchField, searchValue);
-			    if (results.isEmpty()) {
-			        System.out.println("No matching contacts found!");
-			    } else {
-			        for (Contact c : results) {
-			            System.out.println(c);
-			        }
+			    List<Contact> contact1=contactService.searchByField(searchField, searchValue);
+			    for(Contact c:contact1) {
+			    	System.out.println(c);
 			    }
 			    break;
 

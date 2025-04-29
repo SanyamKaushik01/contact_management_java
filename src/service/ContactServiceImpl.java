@@ -26,8 +26,8 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact searchContact(String name) {
-        return repository.findByName(name);
+    public void searchContact(String name) {
+        repository.findByName(name);
     }
 
     @Override
